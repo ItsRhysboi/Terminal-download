@@ -1,0 +1,139 @@
+::[Bat To Exe Converter]
+::
+::YAwzoRdxOk+EWAnk
+::fBw5plQjdG8=
+::YAwzuBVtJxjWCl3EqQJgSA==
+::ZR4luwNxJguZRRnk
+::Yhs/ulQjdF+5
+::cxAkpRVqdFKZSDk=
+::cBs/ulQjdF+5
+::ZR41oxFsdFKZSTk=
+::eBoioBt6dFKZSDk=
+::cRo6pxp7LAbNWATEpCI=
+::egkzugNsPRvcWATEpCI=
+::dAsiuh18IRvcCxnZtBJQ
+::cRYluBh/LU+EWAnk
+::YxY4rhs+aU+JeA==
+::cxY6rQJ7JhzQF1fEqQJQ
+::ZQ05rAF9IBncCkqN+0xwdVs0
+::ZQ05rAF9IAHYFVzEqQJQ
+::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
+::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
+::cRolqwZ3JBvQF1fEqQJQ
+::dhA7uBVwLU+EWDk=
+::YQ03rBFzNR3SWATElA==
+::dhAmsQZ3MwfNWATElA==
+::ZQ0/vhVqMQ3MEVWAtB9wSA==
+::Zg8zqx1/OA3MEVWAtB9wSA==
+::dhA7pRFwIByZRRnk
+::Zh4grVQjdCyDJGyX8VAjFDJAXzaKJXiYCbwgzOf4+ueCrFkOaM8mOL/J1b6LI/QA1nHhZ5sk2HtW2IZMLhpMfRqXWgompGdMt2jLMt+Z0w==
+::YB416Ek+ZG8=
+::
+::
+::978f952a14a936cc963da21a135fa983
+cls
+@echo off
+goto Terminal-main
+
+:Color-Blue
+color 1
+goto Terminal-main
+
+:Color-Green
+color 2
+goto Terminal-main
+
+:Color-Aqua
+color 3
+goto Terminal-main
+
+:Color-Red
+color 4
+goto Terminal-main
+
+:Color-Purple
+color 5
+goto Terminal-main
+
+:Color-Yellow
+color 6
+goto Terminal-main
+
+:Color-White
+color 7
+goto Terminal-main
+
+:cls
+cls
+:Terminal-main
+::Terminal-system
+
+title Terminal
+set /p Terminal=[Terminal]
+Echo.
+
+::if statements
+::color (Text Color only)
+if %terminal%==Default-color start Terminal-data\Defaultcolor.txt
+if %Terminal%==color-1 goto color-Blue
+if %Terminal%==color-2 goto color-Green
+if %Terminal%==color-3 goto color-Aqua
+if %Terminal%==color-4 goto color-Red
+if %Terminal%==color-5 goto color-Purple
+if %Terminal%==color-6 goto color-Yellow
+if %Terminal%==color-7 goto color-White
+::System
+if %terminal%==Help goto help
+if %Terminal%==List goto list
+if %terminal%==Exit goto exit
+if %Terminal%==cls goto cls
+If %Terminal%==Checkforupdate goto update
+
+::Windows
+if %Terminal%==Winkey goto Winkey
+if %Terminal%==Windowskeyfinder goto Winkeyvbs
+If %Terminal%==Hostname goto host
+::back to terminal
+goto Terminal-main
+
+:help
+Echo Make sure that all comands starts with a capital letter
+Echo When spaces are needed replace them with a - e.g. color-2
+pause
+goto Terminal-main
+
+:Help-Install
+Echo Install-winkey, WindowsKeyFinder (Terminal\WindowsKeyFinder)
+
+:list
+::system
+Echo Help (Terminal.bat\Help)
+Echo Exit (Terminal.bat\Kill-Program)
+::color
+Echo Default color, Choose the default text color for your terminal (Terminal-data\Defaultcolor.txt)]
+::Windows
+Echo Winkey, Shows windows key within Terminal (Terminal.bat\Winkey)
+Echo Windowskeyfinder, Shows Windows key through vbs (Terminal-data\WindowsKeyFinder.vbs)
+pause
+goto Terminal-main
+
+:Winkey
+wmic path softwarelicensingservice get OA3xOriginalProductKey
+goto terminal-main
+
+:Winkeyvbs
+Cd Terminal-data
+Start WindowsKeyFinder.vbs
+goto terminal-main
+
+:host
+Echo Hostname:
+hostname
+goto terminal-main
+
+:update
+echo Current version 1.0
+start https://terminal-download.netlify.app/
+
+:exit
+exit
